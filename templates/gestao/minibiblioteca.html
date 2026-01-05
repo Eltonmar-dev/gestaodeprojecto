@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">📚 Gestão de Biblioteca Digital</h1>
+    <a href="/admin/gestao/material/add/" class="btn btn-dark">+ Registar Material</a>
+</div>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-white uppercase bg-gray-800">
+            <tr>
+                <th class="px-6 py-3">Título do Material</th>
+                <th class="px-6 py-3">Autor</th>
+                <th class="px-6 py-3">Área / Disciplina</th>
+                <th class="px-6 py-3">Categoria</th>
+                <th class="px-6 py-3">Ano</th>
+                <th class="px-6 py-3">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in materiais %}
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 font-medium text-gray-900">{{ m.titulo }}</td>
+                <td class="px-6 py-4">{{ m.autor }}</td>
+                <td class="px-6 py-4"><span class="text-blue-600">{{ m.area.nome }}</span></td>
+                <td class="px-6 py-4">{{ m.categoria.nome }}</td>
+                <td class="px-6 py-4">{{ m.ano }}</td>
+                <td class="px-6 py-4">
+                    <a href="{{ m.ficheiro.url }}" class="btn btn-sm btn-outline-primary">Download</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

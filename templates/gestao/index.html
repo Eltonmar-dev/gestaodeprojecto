@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-6 text-gray-800">Painel de Gestão SPC</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Projetos Ativos</h5>
+        <p class="text-3xl font-extrabold text-blue-600">{{ total_p }}</p>
+        <a href="{% url 'lista_projetos' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 mt-4">
+            Ver todos
+        </a>
+    </div>
+
+    <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Itens na Biblioteca</h5>
+        <p class="text-3xl font-extrabold text-green-600">{{ total_l }}</p>
+        <a href="{% url 'lista_biblioteca' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800 mt-4">
+            Aceder Biblioteca
+        </a>
+    </div>
+</div>
+{% endblock %}
